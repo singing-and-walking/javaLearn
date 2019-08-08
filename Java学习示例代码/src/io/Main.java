@@ -1,6 +1,9 @@
 package io;
 
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -15,7 +18,8 @@ public class Main {
 		Main m=new Main();
 //		m.fileIO();
 //		m.objectIO();
-		m.stringFileIO();
+//		m.stringFileIO();
+		m.dadaStream();
 	}
 	
 	public  void fileIO() throws IOException
@@ -58,5 +62,20 @@ public class Main {
 		fileWriter.close();
 		fileReader.close();
 	}
-	
+	public void dadaStream() throws IOException
+	{
+		FileOutputStream fos=new FileOutputStream("C:\\Users\\雨\\Desktop\\output.txt",true);
+		DataOutputStream dos=new DataOutputStream(fos);
+		dos.writeInt(51);
+		dos.writeBoolean(true);
+		dos.writeUTF("为中华之崛起而读书 @zel");
+		FileInputStream fis=new FileInputStream("C:\\Users\\雨\\Desktop\\output.txt");
+		DataInputStream dis=new DataInputStream(fis);
+		System.out.println(dis.readInt());
+		System.out.println(dis.readBoolean());
+		System.out.println(dis.readUTF());
+		dos.close();
+		dis.close();
+		
+	}
 }
