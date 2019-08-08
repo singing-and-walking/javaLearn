@@ -20,6 +20,7 @@ public class Server {
 		Thread send=new Thread(new Send(s));
 		receive.start();
 		send.start();
+		
 //		s.close();
 //		ss.close();
 	}
