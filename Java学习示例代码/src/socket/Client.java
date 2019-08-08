@@ -16,6 +16,7 @@ public class Client {
 		Thread send=new Thread(new Send(s));
 		receive.start();
 		send.start();
+		
 //		s.close();
 	}
 }
