@@ -9,6 +9,7 @@ public class WaitAndNotify {
 	static int count = 5;
 
 	public void test() throws InterruptedException {
+		
 		// 作为同步对象
 		Object obj = new Object();
 
