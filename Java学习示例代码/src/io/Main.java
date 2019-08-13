@@ -3,14 +3,16 @@ package io;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.OutputStream;
 
+import been.Protocol;
 import been.User;
 
 public class Main {
@@ -19,7 +21,8 @@ public class Main {
 //		m.fileIO();
 //		m.objectIO();
 //		m.stringFileIO();
-		m.dadaStream();
+//		m.dadaStream();
+		System.out.println(javax.lang.model.element.Modifier.PUBLIC);
 	}
 	
 	public  void fileIO() throws IOException
@@ -35,10 +38,10 @@ public class Main {
 	{
 		User user=new User();
 		user.setName("objectOutputTest");
-		FileOutputStream output=new FileOutputStream("C:\\Users\\雨\\Desktop\\objectOutput.txt",true);
+		OutputStream output=new FileOutputStream("C:\\Users\\雨\\Desktop\\objectOutput.txt",true);
 		ObjectOutputStream objectOutput=new ObjectOutputStream(output);
 		objectOutput.writeObject(user);
-		FileInputStream input=new FileInputStream("C:\\Users\\雨\\Desktop\\objectOutput.txt");
+		InputStream input=new FileInputStream("C:\\Users\\雨\\Desktop\\objectOutput.txt");
 		ObjectInputStream objectInput=new ObjectInputStream(input);
 		User u2=(User) objectInput.readObject();
 		System.out.println(u2.getName());
@@ -66,13 +69,11 @@ public class Main {
 	{
 		FileOutputStream fos=new FileOutputStream("C:\\Users\\雨\\Desktop\\output.txt",true);
 		DataOutputStream dos=new DataOutputStream(fos);
-		dos.writeInt(51);
-		dos.writeBoolean(true);
-		dos.writeUTF("为中华之崛起而读书 @zel");
+		dos.writeUTF("str1");
+		dos.writeUTF("str2");
 		FileInputStream fis=new FileInputStream("C:\\Users\\雨\\Desktop\\output.txt");
 		DataInputStream dis=new DataInputStream(fis);
-		System.out.println(dis.readInt());
-		System.out.println(dis.readBoolean());
+		System.out.println(dis.readUTF());
 		System.out.println(dis.readUTF());
 		dos.close();
 		dis.close();
