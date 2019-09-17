@@ -22,7 +22,7 @@ public class Main {
 //		m.objectIO();
 //		m.stringFileIO();
 //		m.dadaStream();
-		System.out.println(javax.lang.model.element.Modifier.PUBLIC);
+		m.stringFileIO();
 	}
 	
 	public  void fileIO() throws IOException

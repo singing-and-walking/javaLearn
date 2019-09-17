@@ -2,7 +2,7 @@ package been;
 
 import java.io.Serializable;
 
-public class User implements Serializable {
+public class User implements Serializable,Comparable<User>{
 	/**
 	 * 
 	 */
@@ -41,6 +41,11 @@ public class User implements Serializable {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	@Override
+	public int compareTo(User u) {
+		return this.getAge()-u.getAge();
 	}
 
 }
