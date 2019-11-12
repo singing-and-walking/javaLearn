@@ -5,29 +5,21 @@ import java.util.Scanner;
 
 public class Test {
 	public static void main(String[] args) {
-		Scanner scan=new Scanner(System.in);
-		String oriData=scan.nextLine();
-		scan.close();
-		List<String> subData=new ArrayList<>();
-		for(int i=0,last=0;i<oriData.length();i++)
-		{
-			if(oriData.charAt(i)==' ')
-			{
-				if(last!=i)
-					subData.add(oriData.substring(last,i));
-				last=i+1;
-			}
-			if(i==oriData.length()-1)
-			{
-				subData.add(oriData.substring(last,i+1));
-				last=i+1;
-			}
-		}
-		Collections.reverse(subData);
-		Collections.rotate(subData, 2);
-		for(int i=0;i<subData.size();i++)
-			System.out.print(subData.get(i)+" ");
+		int number=1345;
 		
+		int n=0;
+		int indiv=0;
+		while(number>0)
+		{
+			//‘%’运算取余数，‘/’运行取商
+			int a=number%10;//a是每一位的数
+			indiv=indiv*10+a;//计算反序的数
+			n++;//位数加一
+			number=number/10;//每次循序number就去掉最后一个数，直到为0
+			//在这里输出a
+		}
+		//输出位数n
+		//输出反序indiv
 	}
 
 }
