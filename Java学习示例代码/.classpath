@@ -7,5 +7,9 @@
 	</classpathentry>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="lib" path="lib/JNative/JNative.jar"/>
+	<classpathentry kind="lib" path="lib/bcprov/bcprov-jdk15to18-164.jar"/>
+	<classpathentry kind="lib" path="lib/Servlet/servlet-api.jar"/>
+	<classpathentry kind="lib" path="lib/fastjson/fastjson-1.2.58.jar"/>
+	<classpathentry kind="lib" path="lib/jdbc/mysql-connector-java-5.0.8-bin.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

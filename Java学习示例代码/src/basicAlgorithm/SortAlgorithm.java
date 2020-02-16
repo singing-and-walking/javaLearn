@@ -6,7 +6,7 @@ import java.util.Arrays;
 public class SortAlgorithm {
 	public static void main(String[] args) {
 		SortAlgorithm sort = new SortAlgorithm();
-		int scale = 1000000;
+		int scale = 5000000;
 		int data[] = new int[scale];
 		for (int i = 0; i < scale; i++) {
 			data[i] = (int) (Math.random() * 1000);
@@ -14,20 +14,27 @@ public class SortAlgorithm {
 		int a[]= {1,3,3,5,7,6};
 		int data2[] = Arrays.copyOf(data, scale);
 		Arrays.sort(data2);
-
+//		long start=System.currentTimeMillis();
 //		sort.quickSort(data, 0, scale - 1);// 快速排序
+//		long t1=System.currentTimeMillis()-start;
+//		System.out.println("t1:"+t1);
+//		start=System.currentTimeMillis();
+//		sort.doSomething(data2, 0, scale-1);
+//		long t2=System.currentTimeMillis()-start;
+//		System.out.println("t2:"+t2);
 //		sort.heapSort(data);//堆排序
 //		data=sort.mergeSort(data, 0, scale-1);//归并排序
 //		
 //		System.out.println(Arrays.equals(data, data2));
 //		data[0] = -1;
 //		System.out.println(Arrays.equals(data, data2));
+//		System.out.println(t1-t2);
 //		System.out.println(sort.binarySearch(a,0,2,0));//二分查找
 //		System.out.println(sort.BFPRT(a, 0, 5, 0));//线性查找
-		sort.DFS(a,0);//深度优先搜索
+//		sort.DFS(a,0);//深度优先搜索
 	}
 
-	void quickSort(int data[], int begin, int end) {
+		void quickSort(int data[], int begin, int end) {
 		if (begin >= end) {// 递归到最后的情况：剩下一个或零个元素
 			return;
 		}
@@ -38,13 +45,13 @@ public class SortAlgorithm {
 		i++;
 		while (i <= j) {// 最后i要大于j
 			if (index < i) {
-				if (data[j] < key) {
+				if (data[j] > key) {
 					data[index] = data[j];
 					index = j;
 				}
 				j--;
 			} else {
-				if (data[i] > key) {
+				if (data[i] < key) {
 					data[index] = data[i];
 					index = i;
 				}
@@ -188,5 +195,33 @@ public class SortAlgorithm {
 		DFS(data,2*i+1);
 		DFS(data,2*i+2);
 		
+	}
+
+	void doSomething(int[] a,int start,int end){
+	    if(start<end){
+	        int p=core(a,start,end);
+	        doSomething(a,start,p-1);
+	        doSomething(a,p+1,end);
+	    }
+	}
+	int core(int[] a,int start,int end)
+	{
+	    int x=a[end];
+	    int i=start;
+	    for(int j=start;j<=end-1;j++){
+	        if(a[j]>=x){
+	            swap(a,i,j);
+	            i++;//交换了几次 
+	        }
+	    }//把最大的放到最后
+	    swap(a,i,end);//把最大的放到i的位置 
+	    return i;
+	} 
+	  
+	void swap(int[] a,int i,int j) 
+	{
+	    int tmp=a[i];
+	    a[i]=a[j];
+	    a[j]=tmp;
 	}
 }
